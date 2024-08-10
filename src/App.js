@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react'
+import './input.css'
 
-function App() {
+export default function App() {
+  const [colors, SetColors] = useState()
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section>
+      <div className="w-full h-screen duration-200" style={{ backgroundColor: colors }}>
+        <div className="fixed flex flex-wrap justify-center bottom-12 inset-x-0 px-2">
+          <div className="flex flex-wrap justify-center gap-3 shadow-lg bg-white px-3 py-2 rounded-full">
+            <button className="outline-none px-4 rounded-full py-1 bg-red-700  text-white shadow-lg"
+              onClick={() => SetColors("red")}>Red</button>
+            <button className="outline-none px-4 rounded-full py-1 bg-green-700  text-white shadow-lg"
+              onClick={() => SetColors("green")}>Green</button>
+            <button className="outline-none px-4 rounded-full py-1 bg-blue-600  text-white shadow-lg"
+              onClick={() => SetColors("blue")}>Blue</button>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
-export default App;
